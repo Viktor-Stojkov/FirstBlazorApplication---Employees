@@ -1,9 +1,14 @@
-﻿using EmployeeManagment.Api.BussinesLayout.Data;
-using EmployeeManagment.Api.BussinesLayout.Interfaces;
-using EmployeeManagment.Models;
+﻿using EmployeeManagment.Models;
+using EmployeeManagment_DataAccess_Api.Date;
+using EmployeeManagment_DataAccess_Api.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace EmployeeManagment.Api.BussinesLayout.Service
+namespace EmployeeManagment_DataAccess_Api.Services
 {
     public class DepartmentService : IDepartmentRepository
     {

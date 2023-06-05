@@ -1,9 +1,14 @@
-﻿using EmployeeManagment.Api.BussinesLayout.Data;
-using EmployeeManagment.Api.BussinesLayout.Interfaces;
-using EmployeeManagment.Models;
+﻿using EmployeeManagment.Models;
+using EmployeeManagment_DataAccess_Api.Date;
+using EmployeeManagment_DataAccess_Api.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace EmployeeManagment.Api.BussinesLayout.Service
+namespace EmployeeManagment_DataAccess_Api.Services
 {
     public class EmployeeService : IEmployeeRepository
     {
@@ -13,6 +18,7 @@ namespace EmployeeManagment.Api.BussinesLayout.Service
         {
             _context = context;
         }
+
         public async Task<Employee> CreateEmployeeAsync(Employee employee)
         {
             try
@@ -39,6 +45,7 @@ namespace EmployeeManagment.Api.BussinesLayout.Service
                     createEmployee.Gender = employee.Gender;
                     createEmployee.Roles = employee.Roles;
                     createEmployee.PhotoPath = employee.PhotoPath;
+                    createEmployee.DepartmentId = employee.DepartmentId;
                     createEmployee.Department = department;
 
                     await _context.Employees.AddAsync(createEmployee);
@@ -54,7 +61,7 @@ namespace EmployeeManagment.Api.BussinesLayout.Service
             }
         }
 
-        public async void DeleteEmployeeByIdAsync(int id)
+        public async Task<Employee> DeleteEmployeeByIdAsync(int id)
         {
             try
             {
@@ -64,6 +71,7 @@ namespace EmployeeManagment.Api.BussinesLayout.Service
                     _context.Employees.Remove(employee);
                     await _context.SaveChangesAsync();
                 }
+                return employee;
             }
             catch (Exception ex)
             {
@@ -75,7 +83,7 @@ namespace EmployeeManagment.Api.BussinesLayout.Service
         {
             try
             {
-                List<Employee> employees = await _context.Employees.ToListAsync();
+                List<Employee> employees = await _context.Employees.Include(x => x.Department).ToListAsync();
 
                 return employees;
             }

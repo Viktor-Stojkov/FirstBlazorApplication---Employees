@@ -1,6 +1,5 @@
-﻿using EmployeeManagment.Api.BussinesLayout.Interfaces;
-using EmployeeManagment.Api.BussinesLayout.Service;
-using EmployeeManagment.Models;
+﻿using EmployeeManagment.Models;
+using EmployeeManagment_DataAccess_Api.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagment.Api.Controllers
@@ -63,7 +62,6 @@ namespace EmployeeManagment.Api.Controllers
 
                 throw;
             }
-            return Ok();
         }
     }
 }

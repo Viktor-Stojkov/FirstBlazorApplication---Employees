@@ -11,7 +11,7 @@ namespace EmployeeManagment.Models
     [Table("Department")]
     public class Department
     {
-        public int DepartmentId { get; set; }
+        public int DepartmentId { get; set; } //PK
         public string DepartmentName { get; set; }
     }
 }

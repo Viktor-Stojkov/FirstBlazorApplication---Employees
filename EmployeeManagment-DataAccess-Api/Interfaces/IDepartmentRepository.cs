@@ -1,6 +1,11 @@
 ﻿using EmployeeManagment.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace EmployeeManagment.Api.BussinesLayout.Interfaces
+namespace EmployeeManagment_DataAccess_Api.Interfaces
 {
     public interface IDepartmentRepository
     {

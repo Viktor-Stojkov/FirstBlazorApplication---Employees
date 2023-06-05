@@ -1,6 +1,11 @@
 ﻿using EmployeeManagment.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace EmployeeManagment.Api.BussinesLayout.Interfaces
+namespace EmployeeManagment_DataAccess_Api.Interfaces
 {
     public interface IEmployeeRepository
     {
@@ -8,7 +13,6 @@ namespace EmployeeManagment.Api.BussinesLayout.Interfaces
         Task<Employee> GetEmployeeByIdAsync(int id);
         Task<Employee> CreateEmployeeAsync(Employee employee);
         Task<Employee> UpdateEmployeeAsync(Employee employee);
-        void DeleteEmployeeByIdAsync(int id);
-
+        Task<Employee> DeleteEmployeeByIdAsync(int id);
     }
 }

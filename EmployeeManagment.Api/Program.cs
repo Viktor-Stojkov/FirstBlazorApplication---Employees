@@ -1,23 +1,12 @@
-using EmployeeManagment.Api.BussinesLayout.Data;
-using EmployeeManagment.Api.BussinesLayout.Interfaces;
-using EmployeeManagment.Api.BussinesLayout.Service;
+using EmployeeManagment_DataAccess_Api.Date;
+using EmployeeManagment_DataAccess_Api.Interfaces;
+using EmployeeManagment_DataAccess_Api.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<EmployeeDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-
-//var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-//var environmentName = builder.Environment.EnvironmentName;
-
-//builder.Configuration
-//    .SetBasePath(currentDirectory)//check if this is necessary
-//    .AddUserSecrets<Program>()
-//    .AddEnvironmentVariables();
 
 
 // Add services to the container.
